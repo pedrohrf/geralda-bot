@@ -6,10 +6,6 @@ from src.helpers.discord_response import response
 client = discord.Client()
 
 
-async def invalid_cmd(message):
-    print(f"Comando Invalido {message}")
-
-
 @client.event
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
@@ -17,7 +13,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:  # This line avoids loops
+    if message.author == client.user or message.channel.name != sv.DISCORD_CHANNEL:  # This line avoids loops
         return
     try:
         await response(await execute(message.content), message)
@@ -25,4 +21,4 @@ async def on_message(message):
         await response(e, message)
 
 
-client.run(sv.TOKEN)
+client.run(sv.DISCORD_TOKEN)
