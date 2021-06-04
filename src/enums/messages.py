@@ -1,0 +1,5 @@
+DB_CONNECTION_ERROR = "Erro ao conectar no Banco de Dados"
+INVALID_COMMAND = "Comando no formato errado, use !help para ver a sintaxe dos comandos"
+ERROR_BASE_MESAGE = "OPS!! Algo deu errado, desculpe"
+GENERIC_ERROR = "Não sei te falar exatamente o que aconteceu :/"
+COMMAND_SAVED_FEEDBACK = "OK!! Deu bom, ta salvo meu parça"
