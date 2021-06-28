@@ -19,6 +19,7 @@ class Graph:
     def __init__(self, message_content):
         try:
             sns.set_theme()
+            sns.set(rc={'figure.figsize': (20, 10)})
             lines = message_content.split("\n")
             self.query = lines[1]
             self.plot = getattr(sns, lines[2])
@@ -30,6 +31,6 @@ class Graph:
     def __call__(self):
         db = Postgresql(**DB_CREDENTIALS)
         sns_plot = self.plot(data=db.query(self.query), **self.args)
-        sns_plot.savefig(self.file_name)
+        sns_plot.figure.savefig(self.file_name)
         return self
 
