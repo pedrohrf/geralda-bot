@@ -26,5 +26,12 @@ Por fim basta executar:
 python geralda.py
 ```
 
-## Exemplos de Uso
+## Utilização com o docker
 
+O projeto possui um Dockerfile, que é usado para criar imagens docker e utilizar em diversos ambientes. Por padrão, a versão do Python utilizado no build é o Python3:latest, no entanto é possível passar um parâmetro (*PYTHON_IMAGE_VERSION*) ao iniciar o processo de build dessa imagem, através do comando:
+
+```sh
+docker build -t container-name . --build-arg PYTHON_IMAGE_VERSION=python:3.8
+```
+
+> Ps: Ao omitir o parametro PYTHON_IMAGE_VERSION na linha de comando, a versão 3 (latest) será utilizada, pegando a versão mais recente.
